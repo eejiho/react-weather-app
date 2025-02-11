@@ -12,7 +12,7 @@ function App() {
   const [weather, setWeather] = useState(null);
   const [city, setCity] = useState('');
   const [loading, setLoading] = useState(false);
-  const [id, setId] = useState('');
+  const [icon, setIcon] = useState('');
 
   // 위치 가져오기
   const getCurrentLocation = () => {
@@ -30,7 +30,7 @@ function App() {
       const response = await fetch(url);
       const data = await response.json();
       setWeather(data);
-      setId(data.weather[0].id);
+      setIcon(data.weather[0].icon);
       setLoading(false);
     } catch (err) {
       console.log(err.message);
@@ -46,7 +46,7 @@ function App() {
       const response = await fetch(url);
       const data = await response.json();
       setWeather(data);
-      setId(data.weather[0].id);
+      setIcon(data.weather[0].icon);
       setLoading(false);
     } catch (err) {
       console.log(err.message);
@@ -80,7 +80,7 @@ function App() {
         </div>
       ): (
         <div className="container">
-          <WeatherBox weather={weather} id={id}/>
+          <WeatherBox weather={weather} icon={icon} />
           <WeatherButton 
               cities={cities}
               selectedCity={city}
