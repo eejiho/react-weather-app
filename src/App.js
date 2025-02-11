@@ -54,6 +54,7 @@ function App() {
     }
   }
 
+  // 도시 변경 이벤트 함수
   const handleCityChange = (city) => {
     if(city === 'current') {
       setCity('');
